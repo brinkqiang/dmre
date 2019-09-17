@@ -22,7 +22,7 @@
 #ifndef __DMRE_H_INCLUDE__
 #define __DMRE_H_INCLUDE__
 
-#include "dmos.h"
+#include "ctre.hpp"
 
 class Idmre
 {
