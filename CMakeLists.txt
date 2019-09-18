@@ -15,9 +15,7 @@ SET(DMRE_VERSION "${DMRE_VERSION_MAJOR}.${DMRE_VERSION_MINOR}.${DMRE_VERSION_PAT
 MESSAGE(STATUS "VERSION: ${DMRE_VERSION}")
 
 OPTION(USE_DMRE "use dmre" OFF)
-
-LibImport("dmre" "src/dmre_module")
-ExeImport("test" "dmre")
+ExeImport("test" "")
 
 #ADD_CUSTOM_COMMAND(
 #TARGET dmretest

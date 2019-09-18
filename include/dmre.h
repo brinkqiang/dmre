@@ -24,16 +24,4 @@
 
 #include "ctre.hpp"
 
-class Idmre
-{
-public:
-    virtual ~Idmre(){}
-    virtual void DMAPI Release(void) = 0;
-	
-    virtual void DMAPI Test(void) = 0;
-};
-
-Idmre* DMAPI dmreGetModule();
-
-typedef Idmre* (DMAPI* PFN_dmreGetModule)();
 #endif // __DMRE_H_INCLUDE__
