@@ -1,4 +1,5 @@
 #include "dmre.h"
+#include "dmstrtk.hpp"
 #include <iostream>
 #include <vector>
 #include <string>
@@ -14,15 +15,6 @@ constexpr auto match(std::string_view sv) noexcept
 	return ctre::match<pattern>(sv);
 }
 
-std::vector<std::string> split_string(const std::string& str) {
-	std::vector<std::string> result;
-	std::istringstream iss(str);
-	for (std::string line; std::getline(iss, line); ) {
-		result.push_back(line);
-	}
-	return result;
-}
-
 int main(int argc, char* argv[])
 {
 	std::string includes = R"(#include "dmos.h"
@@ -34,9 +26,10 @@ int main(int argc, char* argv[])
 #include "path/to/file.h"
 int main() { })";
 
-	std::vector<std::string> include_lines = split_string(includes);
+	std::vector<std::string> include_lines;
+	strtk::parse(includes, "\n", include_lines);
 
-	for (const std::string& line : include_lines) {
+	for (auto& line : include_lines) {
 		auto f = ctre::search<pattern>(line);
 		if (f) {
 			// Correctly use the id for the capture group
