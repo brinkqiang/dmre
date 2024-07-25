@@ -19,9 +19,9 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-#ifndef __DMRE_H_INCLUDE__
-#define __DMRE_H_INCLUDE__
+#ifndef __DMRE_HPP_INCLUDE__
+#define __DMRE_HPP_INCLUDE__
 
 #include "ctre.hpp"
 
-#endif // __DMRE_H_INCLUDE__
+#endif // __DMRE_HPP_INCLUDE__
