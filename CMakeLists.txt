@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.2)
+cmake_minimum_required(VERSION 3.8)
 
 PROJECT(dmre)
 
@@ -7,29 +7,10 @@ INCLUDE(cmake/ModuleImport.cmake)
 INCLUDE(cmake/ModuleCompileOptions.cmake)
 ModuleSetCompileOptions()
 
-SET(DMRE_VERSION_MAJOR "1")
-SET(DMRE_VERSION_MINOR "0")
-SET(DMRE_VERSION_PATCH "1")
-SET(DMRE_VERSION "${DMRE_VERSION_MAJOR}.${DMRE_VERSION_MINOR}.${DMRE_VERSION_PATCH}")
+InterfaceImport("dmre" "include" "")
 
-MESSAGE(STATUS "VERSION: ${DMRE_VERSION}")
+if (PROJECT_IS_TOP_LEVEL)
 
-OPTION(USE_DMRE "use dmre" OFF)
-ExeImport("test" "")
+    ExeImport("test" "dmcli11")
+endif(PROJECT_IS_TOP_LEVEL)
 
-#ADD_CUSTOM_COMMAND(
-#TARGET dmretest
-#PRE_BUILD
-#COMMAND ${CMAKE_COMMAND} -E copy_if_different
-#${CMAKE_CURRENT_SOURCE_DIR}/config/test.csv
-#$<TARGET_FILE_DIR:dmretest>
-#)
-
-#INSTALL(DIRECTORY include/ DESTINATION include)
-#INSTALL(TARGETS dmre
-#        RUNTIME DESTINATION bin
-#        LIBRARY DESTINATION lib
-#        ARCHIVE DESTINATION lib)
-
-#SET(DMRE_LIBS "dmre")
-#MARK_AS_ADVANCED(${DMRE_LIBS})
