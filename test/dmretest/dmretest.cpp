@@ -1,7 +1,7 @@
 #include "dmre.hpp"
 #include "dmstrtk.hpp"
 #include <iostream>
-#include <vector>
+#include <vector> // #include <vector> 
 #include <string>
 #include <sstream>
 
@@ -17,13 +17,15 @@ constexpr auto match(std::string_view sv) noexcept
 
 int main(int argc, char* argv[])
 {
-	std::string includes = R"(#include "dmos.h"
+	std::string includes = 
+		R"(
+#include "dmos.h"
 #include <atomic>
 #include <mutex>
 #include <mach-o/dyld.h>
 #include "mach-o/dyld.h"
-   #include <iostream>  
-#include "path/to/file.h"
+  #include  <iostream>
+#include "path/to/file.h" //#include "file.h"
 int main() { })";
 
 	std::vector<std::string> include_lines;

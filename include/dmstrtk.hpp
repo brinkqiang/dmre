@@ -42,6 +42,11 @@
 #include <utility>
 #include <vector>
 
+
+#ifdef _WIN32
+#pragma warning(disable : 4996)
+#endif
+
 #define strtk_no_tr1_or_boost
 
 #ifndef strtk_no_tr1_or_boost
@@ -65,6 +70,7 @@
 //#include <regex>
 #include <boost/regex.hpp>
 #endif
+
 
 #if __GNUC__  >= 7
 
