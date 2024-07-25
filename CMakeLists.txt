@@ -10,7 +10,6 @@ ModuleSetCompileOptions()
 InterfaceImport("dmre" "include" "")
 
 if (PROJECT_IS_TOP_LEVEL)
-
-    ExeImport("test" "dmcli11")
+    ExeImport("test" "dmre")
 endif(PROJECT_IS_TOP_LEVEL)
 
